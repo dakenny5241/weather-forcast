@@ -66,4 +66,3 @@ $("#search-form").submit(e => {
   // Clear input
   $("#city-input").val("");
 });
-```
