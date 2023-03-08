@@ -1,8 +1,25 @@
 // API key for OpenWeatherMap API
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "45169f4eafc87310752c9080c9b79b77";
+//45169f4eafc87310752c9080c9b79b77
 
 // Get weather data from OpenWeatherMap API
 function getWeatherData(city) {
+  // 5day forecast
+  // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
+  //geocoding
+  // http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}
+
+  const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`;
+  fetch(geoUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log("geo response = ", data);
+      let {lat, lon} = data[0];
+      console.log("lat = ", lat, "lon  = ", lon);
+      return;
+    })
+    return;
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`;
 
   fetch(url)
